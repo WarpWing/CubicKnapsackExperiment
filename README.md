@@ -4,3 +4,6 @@ Alternative theoretical methods to solving Cubic Knapsack Paradigms. Inspired by
 >[!NOTE]
 >I'm not an expert at combinatorial optimization and these approaches are grounded in Computer Science Theory (Genetic Programming, Reinforcement Learning, etc).
 >My mathematical skills are suboptimal for me to approach this from a Mathematical or Operations Theory perspective. This is just me applying my Leetcode skills and some preliminary theory.
+
+>[!IMPORTANT]
+>For the sake of academic intergrity, this repository will not be shared with William until he completes the majority of his algorithm.
