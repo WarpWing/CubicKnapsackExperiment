@@ -31,11 +31,11 @@ def fitness(solution, items):
             total_volume += volume
     if total_weight > knapsack_max_weight or total_volume > knapsack_max_volume:
         return 1, total_value, total_weight, total_volume
-    return 0, total_value, total_weight, total_volume  # Ensure consistent return structure
+    return 0, total_value, total_weight, total_volume 
 
 def select(population, fitnesses):
     total_fitnesses = [1 - f[0] for f in fitnesses]  # Invert fitness for selection (higher is better)
-    if sum(total_fitnesses) == 0:  # If total fitness is zero, fallback to uniform selection
+    if sum(total_fitnesses) == 0: 
         return random.sample(population, 2)
     else:
         return random.choices(population, weights=total_fitnesses, k=2)
