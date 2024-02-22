@@ -63,7 +63,7 @@ def genetic_algorithm():
         
         generation_details.append((generation + 1, best_fitness, best_value, best_weight, best_volume))
 
-        if best_fitness == 0:  # A feasible solution has been found
+        if best_fitness == 0:  
             break
 
         new_population = []
