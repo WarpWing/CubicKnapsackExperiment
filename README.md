@@ -1,5 +1,5 @@
 # CubicKnapsackExperiment
-Alternative theoretical methods to solving Cubic Knapsack Paradigms. Inspired by William Cheng's departmental honors presentation.
+Alternative theoretical methods to solving the Cubic Knapsack Paradigm. Inspired by William Cheng's departmental honors presentation.
 
 >[!NOTE]
 >I'm not an expert at combinatorial optimization or metaheuristic applications and these approaches are grounded in Computer Science Theory (Genetic Programming, Quantum Approximation, etc).
