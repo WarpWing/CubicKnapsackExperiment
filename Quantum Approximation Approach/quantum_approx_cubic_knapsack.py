@@ -38,7 +38,7 @@ mdl.maximize(mdl.sum(x[i] * items[i][0] for i in range(len(items))))
 mdl.add_constraint(mdl.sum(x[i] * items[i][1] for i in range(len(items))) <= 100)
 mdl.add_constraint(mdl.sum(x[i] * items[i][2] for i in range(len(items))) <= 60)
 
-# Convert to Quadratic Program
+# Convert to Quadratic Program and make it QOOA-ready
 qp = from_docplex_mp(mdl)
 
 # Setup QuantumInstance and optimizer with a ASR Simulator Backend.
