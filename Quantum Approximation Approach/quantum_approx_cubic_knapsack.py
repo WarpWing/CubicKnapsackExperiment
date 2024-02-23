@@ -16,9 +16,9 @@ from qiskit.quantum_info import SparsePauliOp
 # Setup logging
 logging.basicConfig(level=logging.INFO)
 
-# Define the problem
+# Define the problem (max_value, max_weight, max_volume) and the knapsack constraints (knapsack_max_weight, knapsack_max_volume)
 num_items = 10
-max_value = 100
+max_value = 100 
 max_weight = 40
 max_volume = 20
 knapsack_max_weight = 100
@@ -35,8 +35,8 @@ items = [(np.random.randint(1, max_value + 1), np.random.randint(1, max_weight +
 mdl = Model("CubicKnapsack")
 x = [mdl.binary_var(name=f"x{i}") for i in range(len(items))]
 mdl.maximize(mdl.sum(x[i] * items[i][0] for i in range(len(items))))
-mdl.add_constraint(mdl.sum(x[i] * items[i][1] for i in range(len(items))) <= 100)
-mdl.add_constraint(mdl.sum(x[i] * items[i][2] for i in range(len(items))) <= 60)
+mdl.add_constraint(mdl.sum(x[i] * items[i][1] for i in range(len(items))) <= knapsack_max_weight)
+mdl.add_constraint(mdl.sum(x[i] * items[i][2] for i in range(len(items))) <= knapsack_max_volume)
 
 # Convert to Quadratic Program and make it QAOA-ready
 qp = from_docplex_mp(mdl)
