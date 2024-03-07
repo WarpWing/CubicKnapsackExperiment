@@ -2,15 +2,15 @@ import numpy as np
 import random
 
 # Set the random seed for reproducibility
-np.random.seed(500000)
+np.random.seed(2024)
 
 # Problem specifications (I had to massively scale down search space for demonstration)
-num_items = 1000
+num_items = 50
 max_value = 100
 max_weight = 40
 max_volume = 20
-knapsack_max_weight = 10000
-knapsack_max_volume = 6000
+knapsack_max_weight = 500
+knapsack_max_volume = 500
 
 # Generate items
 items = [(random.randint(1, max_value), random.randint(1, max_weight), random.randint(1, max_volume)) for _ in range(num_items)]
