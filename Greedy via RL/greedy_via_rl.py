@@ -80,6 +80,21 @@ class GreedyDQN:
             self.Q[action_idx] = max(reward, next_best_value)
         self.epsilon *= self.epsilon_decay
 
+    def evaluate_model(dqn, problem, num_episodes=100):
+        total_reward = 0
+        for _ in range(num_episodes):
+            state = problem.reset()
+            done = False
+            episode_reward = 0
+            while not done:
+                action = dqn.choose_action(state)
+                action = np.array([int(x) for x in action])
+                next_state, reward, done = problem.step(action)
+                episode_reward += reward
+                state = next_state
+            total_reward += episode_reward
+        return total_reward / num_episodes
+
 # Initialize the cubic knapsack problem
 problem = CubicKnapsack(n=50, density=0.25, seed=2024)
 
