@@ -72,9 +72,12 @@ class GreedyDQN:
             weight = sum(problem.weights[j] for j in range(self.input_shape[0]) if next_action[j])
             if weight > problem.max_weight:
                 next_state_values[i] = -np.inf
-        next_action_value = np.max(next_state_values)
-        target = reward + (1 - done) * self.gamma * next_action_value
-        self.Q[action_idx] += 0.1 * (target - self.Q[action_idx])
+        next_best_action = np.argmax(next_state_values)
+        next_best_value = self.Q[next_best_action]
+        if done:
+            self.Q[action_idx] = reward
+        else:
+            self.Q[action_idx] = max(reward, next_best_value)
         self.epsilon *= self.epsilon_decay
 
 def evaluate_model(dqn, problem, num_episodes=100):
